@@ -1,0 +1,18 @@
+# --- Стенд «Карта» (Creatio 8.3 Freedom UI) ---
+# Заполни по итогам работы с командой. НЕ коммить реальные пароли —
+# держи локально или через -D при запуске. Файл-пример: config.properties.example
+base.url=https://CHANGE_ME.creatio.internal
+login.path=/Login/NuiLogin.aspx
+
+# --- Драйвер ---
+browser=chrome
+headless=false
+timeout.ms=15000
+
+# --- Пул пользователей (round-robin по ролям) ---
+# Стартовый минимум — один оператор. Расширяй user.card.2..N по мере роста.
+user.card.1.login=CHANGE_ME
+user.card.1.password=CHANGE_ME
+
+# --- URL существующей заявки карты (для спайк-теста выбора продукта) ---
+request.page.url=

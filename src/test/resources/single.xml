@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="single" verbose="1">
+    <test name="freedom-ui-base">
+        <classes>
+            <class name="com.eskhata.cards.tests.LoginTest"/>
+            <class name="com.eskhata.cards.tests.WorkspaceSwitchTest"/>
+            <class name="com.eskhata.cards.tests.ConsultationTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,18 @@
+# --- Build / IDE ---
+target/
+*.iml
+.idea/
+.vscode/
+*.log
+
+# --- Секреты: реальный конфиг со стендом и учётками не коммитим ---
+src/main/resources/config.properties
+
+# --- Allure ---
+allure-results/
+allure-report/
+.allure/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
