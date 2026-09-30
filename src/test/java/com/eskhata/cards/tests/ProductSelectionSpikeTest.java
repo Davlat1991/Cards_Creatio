@@ -29,7 +29,7 @@ import static com.codeborne.selenide.Selenide.open;
 @Owner("Davlat")
 public class ProductSelectionSpikeTest extends BaseTest {
 
-    @Test(enabled = false)
+    @Test
     @Story(AllureTags.Stories.PRODUCT_SELECTION)
     @Description("Открыть заявку карты по URL и выбрать «Вид продукта» через комбобокс")
     @Severity(SeverityLevel.CRITICAL)
@@ -40,7 +40,6 @@ public class ProductSelectionSpikeTest extends BaseTest {
         String requestUrl = Config.get().requestPageUrl();
         open(requestUrl);
 
-        // TODO: заменить на реальное значение вида продукта карты (снять с живого DOM)
-        new ProductSelectionFlow().selectProductKind("ЗАМЕНИ_НА_ВИД_ПРОДУКТА_КАРТЫ");
+        new ProductSelectionFlow().selectProductKind("Дебетная карта");
     }
 }
