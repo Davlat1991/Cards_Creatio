@@ -8,7 +8,9 @@ import com.eskhata.cards.testdata.models.ClientData;
 import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 
-import static com.codeborne.selenide.Condition.value;
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -24,6 +26,18 @@ import static com.codeborne.selenide.Selenide.$x;
 @Slf4j
 public class ConsultationPage extends BasePage {
 
+    /**
+     * Кнопка-переключатель панели консультации в правом тулбаре.
+     * TODO VERIFY на живом DOM: маркер взят из дампа ('CommunicationPanel').
+     * Если open() кликает не ту иконку — навести мышь на нужную кнопку в правом тулбаре,
+     * снять её data-item-marker и заменить строку ниже (одно место).
+     */
+    private static final String PANEL_TOGGLE_MARKER = "Коммуникационная панель";
+
+    private SelenideElement panelToggle() {
+        return $("[data-item-marker='" + PANEL_TOGGLE_MARKER + "']");
+    }
+
     /** Поле по placeholder — стабильно; id/marker у полей = GUID, не годятся. */
     private SelenideElement field(String placeholder) {
         return $x("//input[@placeholder='" + placeholder + "']");
@@ -31,6 +45,49 @@ public class ConsultationPage extends BasePage {
 
     private SelenideElement searchButton() {
         return $("[data-item-marker='SearchButton']");
+    }
+
+    // ---------- Панель: открыть / закрыть / переключить (универсально) ----------
+
+    /** Открыта ли панель — по флагу body[right-panel-collapsed='false'] (быстро, без ожидания). */
+    public boolean isPanelOpen() {
+        return "false".equals($("body").getAttribute("right-panel-collapsed"));
+    }
+
+    @Step("Открыть панель консультации, если закрыта")
+    public ConsultationPage ensurePanelOpen() {
+        if (!isPanelOpen()) {
+            log.info("Панель консультации закрыта — открываю");
+            ClickService.click(panelToggle(), timeout());
+            $("body").shouldHave(attribute("right-panel-collapsed", "false"), timeout());
+        } else {
+            log.info("Панель консультации уже открыта");
+        }
+        return this;
+    }
+
+    @Step("Открыть панель консультации")
+    public ConsultationPage openPanel() {
+        return ensurePanelOpen();
+    }
+
+
+    @Step("Закрыть панель консультации, если открыта")
+    public ConsultationPage closePanel() {
+        if (isPanelOpen()) {
+            log.info("Панель консультации открыта — закрываю");
+            ClickService.click(panelToggle(), timeout());
+            $("body").shouldHave(attribute("right-panel-collapsed", "true"), timeout());
+        } else {
+            log.info("Панель консультации уже закрыта");
+        }
+        return this;
+    }
+
+    @Step("Переключить панель консультации")
+    public ConsultationPage togglePanel() {
+        ClickService.click(panelToggle(), timeout());
+        return this;
     }
 
     @Step("Заполнить данные клиента")

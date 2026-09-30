@@ -12,9 +12,9 @@ public final class ClientDataFactory {
     /** Тестовое физлицо: только ФИО (безопасные текстовые поля). Расширяй по мере надобности. */
     public static ClientData physicalPerson() {
         return ClientData.builder()
-                .lastName("Тестов")
-                .firstName("Тест")
-                .middleName("Тестович")
+                .lastName("Садуллоев")
+                .firstName("Сафарали")
+                .middleName("Нусратович")
                 .build();
     }
 }
