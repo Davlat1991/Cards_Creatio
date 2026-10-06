@@ -4,6 +4,7 @@ target/
 .idea/
 .vscode/
 *.log
+build/
 
 # --- Секреты: реальный конфиг со стендом и учётками не коммитим ---
 src/main/resources/config.properties
