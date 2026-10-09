@@ -13,6 +13,8 @@ import org.testng.annotations.Test;
  * Спайк-тест: обвязка работает end-to-end —
  * драйвер стартует, открывается стенд, проходит авторизация, грузится шелл Freedom UI.
  * Зелёная авторизация подтверждает обвязку (драйвер, конфиг, сборка, Allure, доступ к среде).
+ *
+ * Хочаев Фирдавсиньо Тестович
  */
 @Epic(AllureTags.Epics.CARDS)
 @Feature(AllureTags.Features.AUTH)
