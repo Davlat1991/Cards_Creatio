@@ -28,5 +28,6 @@ public final class AllureTags {
         public static final String SWITCH_WORKSPACE  = "Смена рабочего места";
         public static final String CLIENT_SEARCH     = "Данные клиента";
         public static final String PRODUCT_SELECTION = "Выбор вида продукта";
+        public static final String CONSULTATION_PANEL = "Панель консультации";
     }
 }

@@ -7,6 +7,10 @@ import com.eskhata.cards.testdata.models.Workspace;
 import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -20,6 +24,9 @@ import static com.codeborne.selenide.Selenide.$;
 @Slf4j
 public class WorkspacePage extends BasePage {
 
+    /** Панель навигации после входа дорисовывается дольше общего таймаута (на стенде 8.3 — до ~60 с). */
+    private static final Duration NAV_PANEL_LOAD = Duration.ofSeconds(60);
+
     /** Переключатель рабочих мест; его текст = активное рабочее место. */
     private SelenideElement switcher() {
         return $("[data-item-marker='NavigationPanelGroupItems']");
@@ -32,6 +39,9 @@ public class WorkspacePage extends BasePage {
 
     @Step("Открыть переключатель рабочих мест")
     public WorkspacePage openSwitcher() {
+        // Переключатель может долго дорисовываться после входа — ждём с увеличенным запасом,
+        // сам клик — уже по общему таймауту.
+        switcher().shouldBe(visible, NAV_PANEL_LOAD).shouldBe(enabled, NAV_PANEL_LOAD);
         ClickService.click(switcher(), timeout());
         return this;
     }

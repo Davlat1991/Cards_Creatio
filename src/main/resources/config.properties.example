@@ -7,7 +7,7 @@ login.path=/Login/NuiLogin.aspx
 # --- Драйвер ---
 browser=chrome
 headless=false
-timeout.ms=15000
+timeout.ms=30000
 
 # --- Пул пользователей (round-robin по ролям) ---
 # Стартовый минимум — один оператор. Расширяй user.card.2..N по мере роста.

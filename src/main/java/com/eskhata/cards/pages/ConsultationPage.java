@@ -28,9 +28,7 @@ public class ConsultationPage extends BasePage {
 
     /**
      * Кнопка-переключатель панели консультации в правом тулбаре.
-     * TODO VERIFY на живом DOM: маркер взят из дампа ('CommunicationPanel').
-     * Если open() кликает не ту иконку — навести мышь на нужную кнопку в правом тулбаре,
-     * снять её data-item-marker и заменить строку ниже (одно место).
+     * Подтверждено на живом DOM 8.3 (15.10.2026, ConsultationPanelTest).
      */
     private static final String PANEL_TOGGLE_MARKER = "Коммуникационная панель";
 
@@ -87,6 +85,20 @@ public class ConsultationPage extends BasePage {
     @Step("Переключить панель консультации")
     public ConsultationPage togglePanel() {
         ClickService.click(panelToggle(), timeout());
+        return this;
+    }
+
+    @Step("Проверить, что панель консультации открыта")
+    public ConsultationPage shouldBePanelOpen() {
+        $("body").shouldHave(attribute("right-panel-collapsed", "false"), timeout());
+        log.info("Панель консультации открыта — подтверждено");
+        return this;
+    }
+
+    @Step("Проверить, что панель консультации закрыта")
+    public ConsultationPage shouldBePanelClosed() {
+        $("body").shouldHave(attribute("right-panel-collapsed", "true"), timeout());
+        log.info("Панель консультации закрыта — подтверждено");
         return this;
     }
 

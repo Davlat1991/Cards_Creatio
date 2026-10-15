@@ -46,7 +46,7 @@ public final class Config {
     public String baseUrl()      { return value("base.url", ""); }
     public String loginPath()    { return value("login.path", "/Login/NuiLogin.aspx"); }
     public boolean headless()    { return Boolean.parseBoolean(value("headless", "false")); }
-    public long timeoutMs()      { return Long.parseLong(value("timeout.ms", "15000")); }
+    public long timeoutMs()      { return Long.parseLong(value("timeout.ms", "30000")); }
     public String browser()      { return value("browser", "chrome"); }
 
     /** Дефолтный пользователь-оператор карт (на спайк одного хватает; пул — в UserPool). */

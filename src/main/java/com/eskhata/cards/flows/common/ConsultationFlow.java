@@ -25,6 +25,16 @@ public class ConsultationFlow {
         consultationPage.closePanel();
     }
 
+    @Step("Открыть панель консультации и проверить состояние")
+    public void openPanelAndVerify() {
+        consultationPage.ensurePanelOpen().shouldBePanelOpen();
+    }
+
+    @Step("Закрыть панель консультации и проверить состояние")
+    public void closePanelAndVerify() {
+        consultationPage.closePanel().shouldBePanelClosed();
+    }
+
     @Step("Заполнить данные клиента и проверить заполнение")
     public void fillClient(ClientData client) {
         log.info("Заполнение данных клиента: {} {}", client.getLastName(), client.getFirstName());
