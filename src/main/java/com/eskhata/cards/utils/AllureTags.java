@@ -20,6 +20,7 @@ public final class AllureTags {
         public static final String CONSULTATION  = "Консультация";
         public static final String PRODUCT       = "Выбор продукта";
         public static final String E2E          = "E2E-маршрут";
+        public static final String TEST_DATA    = "Тест-данные";
     }
 
     public static final class Stories {
@@ -29,5 +30,6 @@ public final class AllureTags {
         public static final String CLIENT_SEARCH     = "Данные клиента";
         public static final String PRODUCT_SELECTION = "Выбор вида продукта";
         public static final String CONSULTATION_PANEL = "Панель консультации";
+        public static final String TEST_DATA_LOADING = "Загрузка тест-данных и пул пользователей";
     }
 }

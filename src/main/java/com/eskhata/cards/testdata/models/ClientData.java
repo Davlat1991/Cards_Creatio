@@ -13,9 +13,13 @@ public class ClientData {
     String lastName;        // Фамилия
     String firstName;       // Имя
     String middleName;      // Отчество
+    @ToString.Exclude
     String birthDate;       // Дата рождения
+    @ToString.Exclude
     String passportSeries;  // Серия
+    @ToString.Exclude
     String passportNumber;  // Номер паспорта
+    @ToString.Exclude
     String inn;             // ИНН
     String contract;        // Договор
     /** Сегмент клиента: «Розница». */
