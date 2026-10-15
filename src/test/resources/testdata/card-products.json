@@ -1,0 +1,10 @@
+{
+  "visa-gold-debit": {
+    "productKind": "Дебетная карта",
+    "paymentSystem": "VISA International",
+    "currency": "Сомони Чумхурии Точикистон",
+    "tariffType": "Общий",
+    "termMonths": 60,
+    "productName": "Visa GOLD - 1680 TJS Общий 5y (in-house)"
+  }
+}

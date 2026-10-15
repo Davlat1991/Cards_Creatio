@@ -6,6 +6,7 @@ target/
 *.log
 build/
 
+src/test/resources/testdata/clients.json
 
 # --- Секреты: реальный конфиг со стендом и учётками не коммитим ---
 src/main/resources/config.properties

@@ -1,0 +1,27 @@
+{
+  "retail-verified": {
+    "lastName": "Тестов",
+    "firstName": "Тест",
+    "middleName": "Тестович",
+    "birthDate": "01.01.1990",
+    "segment": "Розница",
+    "documentType": "Паспорт гражданина РТ",
+    "passportSeries": "A",
+    "passportNumber": "0000000",
+    "documentIssueDate": "01.01.2020",
+    "documentIssuedBy": "CHANGE_ME",
+    "inn": "000000000",
+    "address": {
+      "addressType": "Адрес регистрации",
+      "country": "Таджикистан",
+      "city": "Худжанд",
+      "street": "CHANGE_ME",
+      "house": "1"
+    },
+    "smsPhone": "+992000000000",
+    "pzlRelation": "Нет",
+    "bkiConsent": "Да",
+    "riskLevel": "Низкий",
+    "codeWord": "CHANGE_ME"
+  }
+}
